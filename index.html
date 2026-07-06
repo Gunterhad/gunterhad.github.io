@@ -6,13 +6,15 @@
     <title>Mis Quince - Maricel</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Estilos Generales - Temática Cielo Estrellado y Galaxia */
+        /* Estilos Generales - Inspirados en la temática Floral Beige */
         body {
             margin: 0;
             padding: 0;
             font-family: 'Georgia', serif;
-            background: radial-gradient(circle at center, #1a2639 0%, #05070a 100%);
-            color: #ffffff;
+            /* Fondo sutil estilo acuarela crema/beige como la tarjeta */
+            background-color: #fcf8f2;
+            background-image: radial-gradient(circle at 50% 20%, #ffffff 0%, #f7f0e5 100%);
+            color: #5a2e2b; /* Tono vino/terracota elegante para el texto principal */
             text-align: center;
             overflow-x: hidden;
         }
@@ -20,29 +22,30 @@
         .container {
             max-width: 450px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 50px 20px;
             box-sizing: border-box;
         }
 
         /* Título Principal arriba */
         .subtitle {
             font-style: italic;
-            color: #a4b3c6;
+            color: #8c6b64; /* Marrón suave/floral */
             letter-spacing: 2px;
             text-transform: uppercase;
-            font-size: 0.9rem;
+            font-size: 1rem;
             margin-top: 10px;
             margin-bottom: 5px;
         }
 
-        /* Nombre con animación de entrada */
+        /* Nombre con animación de entrada y estilo manuscrito sofisticado */
         h1 {
-            font-size: 3.5rem;
-            letter-spacing: 3px;
-            color: #d4af37;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 3.8rem;
+            letter-spacing: 1px;
+            color: #a33835; /* El característico rojo vino de la invitación de Sandra */
             margin-top: 0;
-            margin-bottom: 20px;
-            font-weight: 300;
+            margin-bottom: 25px;
+            font-weight: 400;
             opacity: 0;
             transform: translateY(20px);
             animation: fadeInUp 1.5s ease-out forwards;
@@ -57,7 +60,7 @@
 
         /* Estilos del Reproductor de Música */
         .music-player {
-            margin-bottom: 40px;
+            margin-bottom: 45px;
             opacity: 0;
             animation: fadeIn 2s ease-out 0.5s forwards;
         }
@@ -67,31 +70,31 @@
         }
 
         .music-btn {
-            background: rgba(214, 175, 55, 0.1);
-            border: 1px solid #d4af37;
-            color: #d4af37;
-            width: 50px;
-            height: 50px;
+            background: rgba(163, 56, 53, 0.05);
+            border: 1px solid #a33835;
+            color: #a33835;
+            width: 52px;
+            height: 52px;
             border-radius: 50%;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             cursor: pointer;
             outline: none;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+            box-shadow: 0 4px 10px rgba(163, 56, 53, 0.1);
             transition: all 0.3s ease;
         }
 
         .music-btn:hover {
-            background: #d4af37;
-            color: #05070a;
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+            background: #a33835;
+            color: #ffffff;
+            box-shadow: 0 4px 15px rgba(163, 56, 53, 0.3);
         }
 
         .music-text {
             font-size: 0.8rem;
-            color: #a4b3c6;
+            color: #8c6b64;
             margin-top: 8px;
             letter-spacing: 1px;
             text-transform: uppercase;
@@ -99,151 +102,159 @@
 
         .quote {
             font-size: 1.1rem;
-            line-height: 1.6;
+            line-height: 1.7;
             font-style: italic;
-            color: #e2e8f0;
-            margin: 30px 10px;
+            color: #4a3631;
+            margin: 35px 10px;
             padding: 0 10px;
         }
 
-        /* Cuenta Regresiva */
+        /* Cuenta Regresiva Estilo Minimalista Claro */
         .countdown-title {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             letter-spacing: 3px;
             text-transform: uppercase;
-            color: #d4af37;
+            color: #a33835;
             margin-bottom: 15px;
+            font-weight: bold;
         }
 
         .countdown {
             display: flex;
             justify-content: center;
             gap: 15px;
-            margin-bottom: 40px;
+            margin-bottom: 45px;
         }
 
         .time-box {
-            background: rgba(255, 255, 255, 0.07);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            padding: 12px;
-            border-radius: 8px;
+            background: #ffffff;
+            border: 1px solid #eadecc;
+            padding: 14px;
+            border-radius: 4px;
             min-width: 65px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 12px rgba(140, 107, 100, 0.06);
         }
 
         .time-box span {
-            font-size: 1.5rem;
-            font-weight: bold;
+            font-size: 1.6rem;
+            font-weight: normal;
             display: block;
-            color: #ffffff;
+            color: #a33835;
+            font-family: 'Times New Roman', serif;
         }
 
         .time-box small {
-            font-size: 0.75rem;
-            color: #a4b3c6;
+            font-size: 0.7rem;
+            color: #8c6b64;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
-        /* Bloques de Información */
+        /* Bloques de Información con líneas limpias de la tarjeta */
         .info-section {
-            margin: 40px 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 30px 0;
+            margin: 45px 0;
+            border-top: 1px solid #eadecc;
+            border-bottom: 1px solid #eadecc;
+            padding: 35px 0;
         }
 
         .info-section h3 {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             letter-spacing: 2px;
-            color: #ffffff;
-            margin-bottom: 15px;
+            color: #a33835;
+            margin-bottom: 20px;
+            font-weight: normal;
         }
 
         .info-section p {
-            margin: 10px 0;
-            color: #cbd5e1;
-            font-size: 1rem;
+            margin: 12px 0;
+            color: #4a3631;
+            font-size: 1.05rem;
         }
 
         /* Icono de ubicación */
         .location-icon {
-            color: #d4af37;
-            margin-right: 8px;
+            color: #a33835;
+            margin-right: 6px;
             font-size: 1.1rem;
         }
 
         /* Botón Ver Ubicación */
         .btn-location {
             display: inline-block;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: #ffffff;
-            padding: 10px 22px;
-            border-radius: 20px;
+            background: #ffffff;
+            border: 1px solid #eadecc;
+            color: #8c6b64;
+            padding: 10px 24px;
+            border-radius: 4px;
             text-decoration: none;
             font-size: 0.85rem;
             letter-spacing: 1px;
             text-transform: uppercase;
-            margin-top: 15px;
+            margin-top: 18px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
             transition: all 0.3s ease;
         }
 
         .btn-location:hover {
-            background: #ffffff;
-            color: #05070a;
-            border-color: #ffffff;
+            background: #a33835;
+            color: #ffffff;
+            border-color: #a33835;
         }
 
         .dress-code {
-            color: #ff7675 !important;
+            color: #b05c59 !important;
             font-weight: bold;
-            margin-top: 25px !important;
+            margin-top: 30px !important;
             letter-spacing: 1px;
+            font-size: 0.95rem !important;
         }
 
         /* Sección de Regalos */
         .gift-section {
-            background: rgba(214, 175, 55, 0.05);
-            border: 1px solid rgba(214, 175, 55, 0.2);
-            padding: 25px 20px;
-            border-radius: 12px;
-            margin: 40px 0;
+            background: #ffffff;
+            border: 1px solid #eadecc;
+            padding: 30px 20px;
+            border-radius: 4px;
+            margin: 45px 0;
+            box-shadow: 0 4px 15px rgba(140, 107, 100, 0.04);
         }
 
         .gift-section p {
             font-size: 0.95rem;
-            line-height: 1.5;
-            color: #cbd5e1;
+            line-height: 1.6;
+            color: #4a3631;
             margin-top: 0;
         }
 
         .alias {
-            font-size: 1.3rem;
-            letter-spacing: 2px;
-            color: #d4af37;
+            font-size: 1.25rem;
+            letter-spacing: 1px;
+            color: #a33835;
             margin-top: 15px;
+            font-family: 'Times New Roman', serif;
         }
 
-        /* Botón de Confirmación */
+        /* Botón de Confirmación Principal */
         .btn-confirm {
             display: inline-block;
-            background: #d4af37;
-            color: #05070a;
-            padding: 16px 40px;
-            border-radius: 30px;
+            background: #a33835;
+            color: #ffffff;
+            padding: 16px 45px;
+            border-radius: 4px;
             text-decoration: none;
             font-weight: bold;
             letter-spacing: 2px;
             font-size: 0.95rem;
             text-transform: uppercase;
-            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
-            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 15px rgba(163, 56, 53, 0.2);
+            transition: all 0.3s ease;
         }
 
         .btn-confirm:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba(212, 175, 55, 0.5);
+            transform: translateY(-1px);
+            background: #872b29;
+            box-shadow: 0 6px 20px rgba(163, 56, 53, 0.35);
         }
     </style>
 </head>
@@ -264,4 +275,91 @@
 
         <p class="quote">
             "Bajo un cielo lleno de estrellas, comparto esta noche con personas tan bellas.<br>
-            Gracias por ser parte de mi ilusión y guardar este
+            Gracias por ser parte de mi ilusión y guardar este momento en el corazón."
+        </p>
+
+        <p class="countdown-title">Faltan</p>
+        <div class="countdown">
+            <div class="time-box">
+                <span id="days">00</span>
+                <small>Días</small>
+            </div>
+            <div class="time-box">
+                <span id="hours">00</span>
+                <small>Horas</small>
+            </div>
+            <div class="time-box">
+                <span id="mins">00</span>
+                <small>Min</small>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h3>VIERNES 10 DE JULIO</h3>
+            <p>
+                <i class="fa-solid fa-location-dot location-icon"></i>
+                <strong>Lugar:</strong> El fogón caminero, Calle 16
+            </p>
+            <p><strong>Hora:</strong> 20:30 HS</p>
+            
+            <a href="LINK_DE_GOOGLE_MAPS" class="btn-location" target="_blank">
+                <i class="fa-solid fa-map-location-dot" style="margin-right: 5px;"></i> Ver ubicación
+            </a>
+
+            <p class="dress-code">DRESS CODE: NO IR DE AZUL</p>
+        </div>
+
+        <div class="gift-section">
+            <p>El mejor regalo es tu presencia, pero si deseas hacerme un obsequio, puedes hacerlo mediante el siguiente alias:</p>
+            <div class="alias"><strong>ALIAS: BRIARIQUELME</strong></div>
+        </div>
+
+        <p style="color: #8c6b64; font-style: italic; margin-bottom: 25px;">¡Espero que puedas compartir conmigo este día tan especial!</p>
+        <a href="https://wa.me/TU_NUMERO_AQUI?text=Hola%20Maricel,%20confirmo%20mi%20asistencia%20a%20tus%20quince!" class="btn-confirm" target="_blank">Confirmar Asistencia</a>
+    </div>
+
+    <script>
+        // Lógica del Reproductor de Música
+        const music = document.getElementById("bg-music");
+        const playBtn = document.getElementById("play-btn");
+        const musicStatus = document.getElementById("music-status");
+
+        function toggleMusic() {
+            if (music.paused) {
+                music.play();
+                playBtn.innerText = "⏸";
+                musicStatus.innerText = "Música Sonando";
+            } else {
+                music.pause();
+                playBtn.innerText = "▶";
+                musicStatus.innerText = "Música Pausada";
+            }
+        }
+
+        // Lógica de la Cuenta Regresiva para el 10 de Julio
+        const targetDate = new Date("July 10, 2026 20:30:00").getTime();
+
+        const updateCountdown = () => {
+            const now = new Date().getTime();
+            const diff = targetDate - now;
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+
+            if (diff > 0) {
+                document.getElementById("days").innerText = days < 10 ? "0" + days : days;
+                document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
+                document.getElementById("mins").innerText = mins < 10 ? "0" + mins : mins;
+            } else {
+                document.getElementById("days").innerText = "00";
+                document.getElementById("hours").innerText = "00";
+                document.getElementById("mins").innerText = "00";
+            }
+        };
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+</body>
+</html>
