@@ -1,1 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Quince - Bri</title>
+    <style>
+        /* Estilos Generales - Temática Cielo Estrellado */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Georgia', serif;
+            background: radial-gradient(circle at center, #1b2735 0%, #090a0f 100%);
+            color: #ffffff;
+            text-align: center;
+            overflow-x: hidden;
+        }
 
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Pantalla de Bienvenida (Sobre) */
+        #envelope-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: #090a0f;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            transition: opacity 0.8s ease;
+        }
+
+        .envelope {
+            width: 200px;
+            height: 140px;
+            background: #ffffff;
+            border-radius: 5px;
+            position: relative;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .seal {
+            width: 40px;
+            height: 40px;
+            background: #4a6fa5;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 10px rgba(255,255,255,0.3);
+        }
+
+        /* Contenido Principal */
+        .main-content {
+            padding-top: 40px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+            color: #d4af37; /* Dorado elegante */
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+            font-size: 1.2rem;
+        }
+
+        .time-box {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 8px;
+            min-width: 60px;
+        }
+
+        .btn-confirm {
+            display: inline-block;
+            background: #d4af37;
+            color: #090a0f;
+            padding: 15px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 30px;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Pantalla del Sobre Inicial -->
+    <div id="envelope-screen" onclick="openInvitation()">
+        <h2 style="color: #fff; margin-bottom: 30px;">Mis Quince Años - Bri</h2>
+        <div class="envelope">
+            <div class="seal"></div>
+        </div>
+        <p style="margin-top: 20px; font-size: 0.9rem; color: #aaa;">Presiona el sobre para abrirlo</p>
+    </div>
+
+    <!-- Contenido de la Invitación -->
+    <div class="container main-content">
+        <h1>Bri</h1>
+        <p style="font-style: italic; color: #d4af37;">Mis Quince Años</p>
+        
+        <p class="quote">"Bajo un cielo lleno de estrellas, comparto esta noche con personas tan bellas..."</p>
+
+        <!-- Cuenta Regresiva -->
+        <div class="countdown">
+            <div class="time-box"><span id="days">00</span><br><small>Días</small></div>
+            <div class="time-box"><span id="hours">00</span><br><small>Horas</small></div>
+            <div class="time-box"><span id="mins">00</span><br><small>Min</small></div>
+        </div>
+
+        <!-- Detalles -->
+        <div style="margin: 40px 0;">
+            <h3>SÁBADO 27 DE JUNIO</h3>
+            <p><strong>Lugar:</strong> Salón de Eventos El Lugar, Calle 16</p>
+            <p><strong>Hora:</strong> 20:30 HS</p>
+            <p style="color: #ff6b6b;"><strong>Dress Code:</strong> Elegante (No ir de azul)</p>
+        </div>
+
+        <!-- Regalos -->
+        <div style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 10px;">
+            <p>El mejor regalo es tu presencia, pero si deseas hacernos un obsequio, puedes hacerlo al siguiente Alias:</p>
+            <p style="font-size: 1.2rem; letter-spacing: 1px; color: #d4af37;"><strong>BRIARIQUELME</strong></p>
+        </div>
+
+        <!-- Botón RSVP -->
+        <a href="https://wa.me/TU_NUMERO_AQUI?text=Hola%20Bri,%20confirmo%20mi%20asistencia" class="btn-confirm" target="_blank">CONFIRMAR ASISTENCIA</a>
+    </div>
+
+    <script>
+        // Función para abrir el sobre
+        function openInvitation() {
+            const screen = document.getElementById('envelope-screen');
+            screen.style.opacity = '0';
+            setTimeout(() => {
+                screen.style.display = 'none';
+            }, 800);
+        }
+
+        // Lógica de la Cuenta Regresiva (Ajustar fecha objetivo aquí)
+        const targetDate = new Date("June 27, 2026 20:30:00").getTime();
+
+        setInterval(() => {
+            const now = new Date().getTime();
+            const diff = targetDate - now;
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+
+            document.getElementById("days").innerText = days > 0 ? days : "00";
+            document.getElementById("hours").innerText = hours > 0 ? hours : "00";
+            document.getElementById("mins").innerText = mins > 0 ? mins : "00";
+        }, 1000);
+    </script>
+</body>
+</html>
