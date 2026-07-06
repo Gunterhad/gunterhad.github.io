@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mis Quince - Maricel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Estilos Generales - Temática Cielo Estrellado y Galaxia */
         body {
@@ -58,7 +59,7 @@
         .music-player {
             margin-bottom: 40px;
             opacity: 0;
-            animation: fadeIn 2s ease-out 0.5s forwards; /* Aparece sutilmente después del nombre */
+            animation: fadeIn 2s ease-out 0.5s forwards;
         }
 
         @keyframes fadeIn {
@@ -160,15 +161,44 @@
         }
 
         .info-section p {
-            margin: 8px 0;
+            margin: 10px 0;
             color: #cbd5e1;
             font-size: 1rem;
+        }
+
+        /* Icono de ubicación */
+        .location-icon {
+            color: #d4af37;
+            margin-right: 8px;
+            font-size: 1.1rem;
+        }
+
+        /* Botón Ver Ubicación */
+        .btn-location {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            padding: 10px 22px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-location:hover {
+            background: #ffffff;
+            color: #05070a;
+            border-color: #ffffff;
         }
 
         .dress-code {
             color: #ff7675 !important;
             font-weight: bold;
-            margin-top: 15px !important;
+            margin-top: 25px !important;
             letter-spacing: 1px;
         }
 
@@ -234,83 +264,4 @@
 
         <p class="quote">
             "Bajo un cielo lleno de estrellas, comparto esta noche con personas tan bellas.<br>
-            Gracias por ser parte de mi ilusión y guardar este momento en el corazón."
-        </p>
-
-        <p class="countdown-title">Faltan</p>
-        <div class="countdown">
-            <div class="time-box">
-                <span id="days">00</span>
-                <small>Días</small>
-            </div>
-            <div class="time-box">
-                <span id="hours">00</span>
-                <small>Horas</small>
-            </div>
-            <div class="time-box">
-                <span id="mins">00</span>
-                <small>Min</small>
-            </div>
-        </div>
-
-        <div class="info-section">
-            <h3>VIERNES 10 DE JULIO</h3>
-            <p><strong>Lugar:</strong> El fogón caminero, Calle 16</p>
-            <p><strong>Hora:</strong> 20:30 HS</p>
-            <p class="dress-code">DRESS CODE: NO IR DE AZUL</p>
-        </div>
-
-        <div class="gift-section">
-            <p>El mejor regalo es tu presencia, pero si deseas hacerme un obsequio, puedes hacerlo mediante el siguiente alias:</p>
-            <div class="alias"><strong>ALIAS: BRIARIQUELME</strong></div>
-        </div>
-
-        <p style="color: #a4b3c6; font-style: italic; margin-bottom: 20px;">¡Espero que puedas compartir conmigo este día tan especial!</p>
-        <a href="https://wa.me/TU_NUMERO_AQUI?text=Hola%20Maricel,%20confirmo%20mi%20asistencia%20a%20tus%20quince!" class="btn-confirm" target="_blank">Confirmar Asistencia</a>
-    </div>
-
-    <script>
-        // Lógica del Reproductor de Música
-        const music = document.getElementById("bg-music");
-        const playBtn = document.getElementById("play-btn");
-        const musicStatus = document.getElementById("music-status");
-
-        function toggleMusic() {
-            if (music.paused) {
-                music.play();
-                playBtn.innerText = "⏸";
-                musicStatus.innerText = "Música Sonando";
-            } else {
-                music.pause();
-                playBtn.innerText = "▶";
-                musicStatus.innerText = "Música Pausada";
-            }
-        }
-
-        // Lógica de la Cuenta Regresiva
-        const targetDate = new Date("July 10, 2026 20:30:00").getTime();
-
-        const updateCountdown = () => {
-            const now = new Date().getTime();
-            const diff = targetDate - now;
-
-            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-
-            if (diff > 0) {
-                document.getElementById("days").innerText = days < 10 ? "0" + days : days;
-                document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
-                document.getElementById("mins").innerText = mins < 10 ? "0" + mins : mins;
-            } else {
-                document.getElementById("days").innerText = "00";
-                document.getElementById("hours").innerText = "00";
-                document.getElementById("mins").innerText = "00";
-            }
-        };
-
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
-    </script>
-</body>
-</html>
+            Gracias por ser parte de mi ilusión y guardar este
