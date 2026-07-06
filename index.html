@@ -40,19 +40,60 @@
             letter-spacing: 3px;
             color: #d4af37;
             margin-top: 0;
-            margin-bottom: 40px;
+            margin-bottom: 20px;
             font-weight: 300;
             opacity: 0;
             transform: translateY(20px);
             animation: fadeInUp 1.5s ease-out forwards;
         }
 
-        /* Definición de la animación para el nombre */
         @keyframes fadeInUp {
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
+        }
+
+        /* Estilos del Reproductor de Música */
+        .music-player {
+            margin-bottom: 40px;
+            opacity: 0;
+            animation: fadeIn 2s ease-out 0.5s forwards; /* Aparece sutilmente después del nombre */
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        .music-btn {
+            background: rgba(214, 175, 55, 0.1);
+            border: 1px solid #d4af37;
+            color: #d4af37;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            outline: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .music-btn:hover {
+            background: #d4af37;
+            color: #05070a;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+        }
+
+        .music-text {
+            font-size: 0.8rem;
+            color: #a4b3c6;
+            margin-top: 8px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
         .quote {
@@ -179,17 +220,23 @@
 <body>
 
     <div class="container">
-        <!-- Encabezado con orden invertido -->
         <p class="subtitle">Mis Quince Años</p>
         <h1>Maricel</h1>
         
-        <!-- Frase adaptada a singular -->
+        <div class="music-player">
+            <audio id="bg-music" loop>
+                <source src="musica_15.mp3" type="audio/mpeg">
+                Tu navegador no soporta este reproductor.
+            </audio>
+            <button class="music-btn" id="play-btn" onclick="toggleMusic()">▶</button>
+            <div class="music-text" id="music-status">Escuchar Música</div>
+        </div>
+
         <p class="quote">
             "Bajo un cielo lleno de estrellas, comparto esta noche con personas tan bellas.<br>
             Gracias por ser parte de mi ilusión y guardar este momento en el corazón."
         </p>
 
-        <!-- Cuenta Regresiva -->
         <p class="countdown-title">Faltan</p>
         <div class="countdown">
             <div class="time-box">
@@ -206,7 +253,6 @@
             </div>
         </div>
 
-        <!-- Detalles del Evento -->
         <div class="info-section">
             <h3>VIERNES 10 DE JULIO</h3>
             <p><strong>Lugar:</strong> El fogón caminero, Calle 16</p>
@@ -214,7 +260,6 @@
             <p class="dress-code">DRESS CODE: NO IR DE AZUL</p>
         </div>
 
-        <!-- Sección del Regalo -->
         <div class="gift-section">
             <p>El mejor regalo es tu presencia, pero si deseas hacerme un obsequio, puedes hacerlo mediante el siguiente alias:</p>
             <div class="alias"><strong>ALIAS: BRIARIQUELME</strong></div>
@@ -225,6 +270,24 @@
     </div>
 
     <script>
+        // Lógica del Reproductor de Música
+        const music = document.getElementById("bg-music");
+        const playBtn = document.getElementById("play-btn");
+        const musicStatus = document.getElementById("music-status");
+
+        function toggleMusic() {
+            if (music.paused) {
+                music.play();
+                playBtn.innerText = "⏸";
+                musicStatus.innerText = "Música Sonando";
+            } else {
+                music.pause();
+                playBtn.innerText = "▶";
+                musicStatus.innerText = "Música Pausada";
+            }
+        }
+
+        // Lógica de la Cuenta Regresiva
         const targetDate = new Date("July 10, 2026 20:30:00").getTime();
 
         const updateCountdown = () => {
