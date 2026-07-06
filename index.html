@@ -5,168 +5,236 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mis Quince - Bri</title>
     <style>
-        /* Estilos Generales - Temática Cielo Estrellado */
+        /* Estilos Generales - Temática Cielo Estrellado y Galaxia */
         body {
             margin: 0;
             padding: 0;
             font-family: 'Georgia', serif;
-            background: radial-gradient(circle at center, #1b2735 0%, #090a0f 100%);
+            /* Degradado profundo que simula el espacio */
+            background: radial-gradient(circle at center, #1a2639 0%, #05070a 100%);
             color: #ffffff;
             text-align: center;
             overflow-x: hidden;
         }
 
         .container {
-            max-width: 500px;
+            max-width: 450px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 40px 20px;
+            box-sizing: border-box;
         }
 
-        /* Pantalla de Bienvenida (Sobre) */
-        #envelope-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: #090a0f;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            transition: opacity 0.8s ease;
-        }
-
-        .envelope {
-            width: 200px;
-            height: 140px;
-            background: #ffffff;
-            border-radius: 5px;
-            position: relative;
-            cursor: pointer;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-
-        .seal {
-            width: 40px;
-            height: 40px;
-            background: #4a6fa5;
-            border-radius: 50%;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            box-shadow: 0 0 10px rgba(255,255,255,0.3);
-        }
-
-        /* Contenido Principal */
-        .main-content {
-            padding-top: 40px;
-        }
-
+        /* Detalles Estéticos */
         h1 {
-            font-size: 2.5rem;
+            font-size: 3rem;
+            letter-spacing: 3px;
+            color: #d4af37; /* Dorado elegante para resaltar */
+            margin-bottom: 5px;
+            font-weight: 300;
+        }
+
+        .subtitle {
+            font-style: italic;
+            color: #a4b3c6;
             letter-spacing: 2px;
-            color: #d4af37; /* Dorado elegante */
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            margin-top: 0;
+            margin-bottom: 40px;
+        }
+
+        .quote {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            font-style: italic;
+            color: #e2e8f0;
+            margin: 30px 10px;
+            padding: 0 10px;
+        }
+
+        /* Cuenta Regresiva */
+        .countdown-title {
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #d4af37;
+            margin-bottom: 15px;
         }
 
         .countdown {
             display: flex;
             justify-content: center;
             gap: 15px;
-            margin: 30px 0;
-            font-size: 1.2rem;
+            margin-bottom: 40px;
         }
 
         .time-box {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 10px;
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 12px;
             border-radius: 8px;
-            min-width: 60px;
+            min-width: 65px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
         }
 
+        .time-box span {
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: block;
+            color: #ffffff;
+        }
+
+        .time-box small {
+            font-size: 0.75rem;
+            color: #a4b3c6;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Bloques de Información */
+        .info-section {
+            margin: 40px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 30px 0;
+        }
+
+        .info-section h3 {
+            font-size: 1.3rem;
+            letter-spacing: 2px;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+
+        .info-section p {
+            margin: 8px 0;
+            color: #cbd5e1;
+            font-size: 1rem;
+        }
+
+        .dress-code {
+            color: #ff7675 !important;
+            font-weight: bold;
+            margin-top: 15px !important;
+            letter-spacing: 1px;
+        }
+
+        /* Sección de Regalos */
+        .gift-section {
+            background: rgba(214, 175, 55, 0.05);
+            border: 1px solid rgba(214, 175, 55, 0.2);
+            padding: 25px 20px;
+            border-radius: 12px;
+            margin: 40px 0;
+        }
+
+        .gift-section p {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: #cbd5e1;
+            margin-top: 0;
+        }
+
+        .alias {
+            font-size: 1.3rem;
+            letter-spacing: 2px;
+            color: #d4af37;
+            margin-top: 15px;
+        }
+
+        /* Botón de Confirmación */
         .btn-confirm {
             display: inline-block;
             background: #d4af37;
-            color: #090a0f;
-            padding: 15px 30px;
-            border-radius: 25px;
+            color: #05070a;
+            padding: 16px 40px;
+            border-radius: 30px;
             text-decoration: none;
             font-weight: bold;
-            margin-top: 30px;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+            letter-spacing: 2px;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-confirm:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(212, 175, 55, 0.5);
         }
     </style>
 </head>
 <body>
 
-    <!-- Pantalla del Sobre Inicial -->
-    <div id="envelope-screen" onclick="openInvitation()">
-        <h2 style="color: #fff; margin-bottom: 30px;">Mis Quince Años - Bri</h2>
-        <div class="envelope">
-            <div class="seal"></div>
-        </div>
-        <p style="margin-top: 20px; font-size: 0.9rem; color: #aaa;">Presiona el sobre para abrirlo</p>
-    </div>
-
-    <!-- Contenido de la Invitación -->
-    <div class="container main-content">
+    <div class="container">
         <h1>Bri</h1>
-        <p style="font-style: italic; color: #d4af37;">Mis Quince Años</p>
+        <p class="subtitle">Mis Quince Años</p>
         
-        <p class="quote">"Bajo un cielo lleno de estrellas, comparto esta noche con personas tan bellas..."</p>
+        <p class="quote">
+            "Bajo un cielo lleno de estrellas, comparto esta noche con personas tan bellas.<br>
+            Gracias por ser parte de mi ilusión y guardar este momento en el corazón."
+        </p>
 
-        <!-- Cuenta Regresiva -->
+        <p class="countdown-title">Faltan</p>
         <div class="countdown">
-            <div class="time-box"><span id="days">00</span><br><small>Días</small></div>
-            <div class="time-box"><span id="hours">00</span><br><small>Horas</small></div>
-            <div class="time-box"><span id="mins">00</span><br><small>Min</small></div>
+            <div class="time-box">
+                <span id="days">00</span>
+                <small>Días</small>
+            </div>
+            <div class="time-box">
+                <span id="hours">00</span>
+                <small>Horas</small>
+            </div>
+            <div class="time-box">
+                <span id="mins">00</span>
+                <small>Min</small>
+            </div>
         </div>
 
-        <!-- Detalles -->
-        <div style="margin: 40px 0;">
+        <div class="info-section">
             <h3>SÁBADO 27 DE JUNIO</h3>
-            <p><strong>Lugar:</strong> Salón de Eventos El Lugar, Calle 16</p>
+            <p><strong>Lugar:</strong> El fogón caminero, Calle 16</p>
             <p><strong>Hora:</strong> 20:30 HS</p>
-            <p style="color: #ff6b6b;"><strong>Dress Code:</strong> Elegante (No ir de azul)</p>
+            <p class="dress-code">DRESS CODE: NO IR DE AZUL</p>
         </div>
 
-        <!-- Regalos -->
-        <div style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 10px;">
-            <p>El mejor regalo es tu presencia, pero si deseas hacernos un obsequio, puedes hacerlo al siguiente Alias:</p>
-            <p style="font-size: 1.2rem; letter-spacing: 1px; color: #d4af37;"><strong>BRIARIQUELME</strong></p>
+        <div class="gift-section">
+            <p>El mejor regalo es tu presencia, pero si deseas hacernos un obsequio, puedes hacerlo mediante el siguiente alias:</p>
+            <div class="alias"><strong>ALIAS: BRIARIQUELME</strong></div>
         </div>
 
-        <!-- Botón RSVP -->
-        <a href="https://wa.me/TU_NUMERO_AQUI?text=Hola%20Bri,%20confirmo%20mi%20asistencia" class="btn-confirm" target="_blank">CONFIRMAR ASISTENCIA</a>
+        <p style="color: #a4b3c6; font-style: italic; margin-bottom: 20px;">¡Espero que puedas compartir conmigo este día tan especial!</p>
+        <a href="https://wa.me/TU_NUMERO_AQUI?text=Hola%20Bri,%20confirmo%20mi%20asistencia%20a%20tus%20quince!" class="btn-confirm" target="_blank">Confirmar Asistencia</a>
     </div>
 
     <script>
-        // Función para abrir el sobre
-        function openInvitation() {
-            const screen = document.getElementById('envelope-screen');
-            screen.style.opacity = '0';
-            setTimeout(() => {
-                screen.style.display = 'none';
-            }, 800);
-        }
-
-        // Lógica de la Cuenta Regresiva (Ajustar fecha objetivo aquí)
+        // Lógica de la Cuenta Regresiva automática para el 27 de junio de 2026
         const targetDate = new Date("June 27, 2026 20:30:00").getTime();
 
-        setInterval(() => {
+        const updateCountdown = () => {
             const now = new Date().getTime();
             const diff = targetDate - now;
 
+            // Cálculos de tiempo
             const days = Math.floor(diff / (1000 * 60 * 60 * 24));
             const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
 
-            document.getElementById("days").innerText = days > 0 ? days : "00";
-            document.getElementById("hours").innerText = hours > 0 ? hours : "00";
-            document.getElementById("mins").innerText = mins > 0 ? mins : "00";
-        }, 1000);
+            // Muestra los resultados si la fecha no ha pasado
+            if (diff > 0) {
+                document.getElementById("days").innerText = days < 10 ? "0" + days : days;
+                document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
+                document.getElementById("mins").innerText = mins < 10 ? "0" + mins : mins;
+            } else {
+                document.getElementById("days").innerText = "00";
+                document.getElementById("hours").innerText = "00";
+                document.getElementById("mins").innerText = "00";
+            }
+        };
+
+        // Ejecutar cada segundo
+        setInterval(updateCountdown, 1000);
+        updateCountdown(); // Ejecución inicial inmediata
     </script>
 </body>
 </html>
