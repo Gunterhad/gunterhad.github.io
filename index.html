@@ -10,7 +10,6 @@
             margin: 0;
             padding: 0;
             font-family: 'Georgia', serif;
-            /* Degradado profundo que simula el espacio */
             background: radial-gradient(circle at center, #1a2639 0%, #05070a 100%);
             color: #ffffff;
             text-align: center;
@@ -24,11 +23,10 @@
             box-sizing: border-box;
         }
 
-        /* Detalles Estéticos */
         h1 {
             font-size: 3rem;
             letter-spacing: 3px;
-            color: #d4af37; /* Dorado elegante para resaltar */
+            color: #d4af37;
             margin-bottom: 5px;
             font-weight: 300;
         }
@@ -175,6 +173,7 @@
             Gracias por ser parte de mi ilusión y guardar este momento en el corazón."
         </p>
 
+        <!-- Cuenta Regresiva -->
         <p class="countdown-title">Faltan</p>
         <div class="countdown">
             <div class="time-box">
@@ -191,13 +190,15 @@
             </div>
         </div>
 
+        <!-- Detalles del Evento Actualizados -->
         <div class="info-section">
-            <h3>SÁBADO 27 DE JUNIO</h3>
+            <h3>VIERNES 10 DE JULIO</h3>
             <p><strong>Lugar:</strong> El fogón caminero, Calle 16</p>
             <p><strong>Hora:</strong> 20:30 HS</p>
             <p class="dress-code">DRESS CODE: NO IR DE AZUL</p>
         </div>
 
+        <!-- Sección del Regalo -->
         <div class="gift-section">
             <p>El mejor regalo es tu presencia, pero si deseas hacernos un obsequio, puedes hacerlo mediante el siguiente alias:</p>
             <div class="alias"><strong>ALIAS: BRIARIQUELME</strong></div>
@@ -208,19 +209,17 @@
     </div>
 
     <script>
-        // Lógica de la Cuenta Regresiva automática para el 27 de junio de 2026
-        const targetDate = new Date("June 27, 2026 20:30:00").getTime();
+        // Nueva fecha objetivo en JavaScript: Viernes 10 de Julio de 2026
+        const targetDate = new Date("July 10, 2026 20:30:00").getTime();
 
         const updateCountdown = () => {
             const now = new Date().getTime();
             const diff = targetDate - now;
 
-            // Cálculos de tiempo
             const days = Math.floor(diff / (1000 * 60 * 60 * 24));
             const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
 
-            // Muestra los resultados si la fecha no ha pasado
             if (diff > 0) {
                 document.getElementById("days").innerText = days < 10 ? "0" + days : days;
                 document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
@@ -232,9 +231,8 @@
             }
         };
 
-        // Ejecutar cada segundo
         setInterval(updateCountdown, 1000);
-        updateCountdown(); // Ejecución inicial inmediata
+        updateCountdown();
     </script>
 </body>
 </html>
