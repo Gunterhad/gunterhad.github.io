@@ -4,51 +4,90 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mis Quince - Maricel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Monsieur+La+Doulaise&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        /* Estilos Generales - Inspirados en la temática Floral Beige */
+        /* Estilos Generales */
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Georgia', serif;
-            /* Fondo sutil estilo acuarela crema/beige como la tarjeta */
+            font-family: 'Playfair Display', serif;
             background-color: #fcf8f2;
-            background-image: radial-gradient(circle at 50% 20%, #ffffff 0%, #f7f0e5 100%);
-            color: #5a2e2b; /* Tono vino/terracota elegante para el texto principal */
+            /* Suave textura de fondo simulando acuarela */
+            background-image: radial-gradient(circle at 50% 30%, #ffffff 0%, #f9f3eb 100%);
+            color: #5a2e2b;
             text-align: center;
             overflow-x: hidden;
         }
 
+        /* Flores decorativas en las esquinas superiores */
+        .flower-corner {
+            position: fixed;
+            width: 160px;
+            height: 160px;
+            pointer-events: none; /* No interfieren con los clics */
+            opacity: 0.85;
+            z-index: 10;
+        }
+        .top-left {
+            top: 0;
+            left: 0;
+            background: radial-gradient(circle at top left, #ebd2be 0%, transparent 70%);
+            border-radius: 0 0 100% 0;
+        }
+        .top-right {
+            top: 0;
+            right: 0;
+            background: radial-gradient(circle at top right, #ebd2be 0%, transparent 70%);
+            border-radius: 0 0 0 100%;
+        }
+
+        /* Siluetas de flores usando SVG vectoriales elegantes de fondo */
+        .flower-corner::before {
+            content: "✿";
+            font-size: 5rem;
+            color: #d9bfa7;
+            position: absolute;
+            opacity: 0.4;
+        }
+        .top-left::before { top: 15px; left: 15px; }
+        .top-right::before { top: 15px; right: 15px; }
+
         .container {
             max-width: 450px;
             margin: 0 auto;
-            padding: 50px 20px;
+            padding: 60px 20px;
             box-sizing: border-box;
+            position: relative;
+            z-index: 2;
         }
 
-        /* Título Principal arriba */
+        /* Encabezado */
         .subtitle {
+            font-family: 'Playfair Display', serif;
             font-style: italic;
-            color: #8c6b64; /* Marrón suave/floral */
-            letter-spacing: 2px;
+            color: #8c6b64;
+            letter-spacing: 3px;
             text-transform: uppercase;
-            font-size: 1rem;
-            margin-top: 10px;
-            margin-bottom: 5px;
+            font-size: 0.95rem;
+            margin-bottom: 0;
         }
 
-        /* Nombre con animación de entrada y estilo manuscrito sofisticado */
+        /* Nombre Maricel con Fuente Manuscrita de Invitación Real */
         h1 {
-            font-family: 'Times New Roman', Times, serif;
-            font-size: 3.8rem;
-            letter-spacing: 1px;
-            color: #a33835; /* El característico rojo vino de la invitación de Sandra */
-            margin-top: 0;
-            margin-bottom: 25px;
-            font-weight: 400;
+            font-family: 'Monsieur La Doulaise', cursive;
+            font-size: 5.5rem;
+            color: #a33835;
+            margin-top: -10px;
+            margin-bottom: 20px;
+            font-weight: normal;
             opacity: 0;
             transform: translateY(20px);
             animation: fadeInUp 1.5s ease-out forwards;
+            text-shadow: 1px 1px 1px rgba(0,0,0,0.05);
         }
 
         @keyframes fadeInUp {
@@ -58,7 +97,7 @@
             }
         }
 
-        /* Estilos del Reproductor de Música */
+        /* Reproductor de Música */
         .music-player {
             margin-bottom: 45px;
             opacity: 0;
@@ -70,11 +109,11 @@
         }
 
         .music-btn {
-            background: rgba(163, 56, 53, 0.05);
-            border: 1px solid #a33835;
+            background: #ffffff;
+            border: 1px solid #eadecc;
             color: #a33835;
-            width: 52px;
-            height: 52px;
+            width: 54px;
+            height: 54px;
             border-radius: 50%;
             font-size: 1.1rem;
             cursor: pointer;
@@ -82,40 +121,40 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 10px rgba(163, 56, 53, 0.1);
+            box-shadow: 0 4px 15px rgba(140, 107, 100, 0.1);
             transition: all 0.3s ease;
         }
 
         .music-btn:hover {
             background: #a33835;
             color: #ffffff;
-            box-shadow: 0 4px 15px rgba(163, 56, 53, 0.3);
+            border-color: #a33835;
+            box-shadow: 0 4px 18px rgba(163, 56, 53, 0.3);
         }
 
         .music-text {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             color: #8c6b64;
-            margin-top: 8px;
-            letter-spacing: 1px;
+            margin-top: 10px;
+            letter-spacing: 2px;
             text-transform: uppercase;
         }
 
         .quote {
             font-size: 1.1rem;
-            line-height: 1.7;
+            line-height: 1.8;
             font-style: italic;
             color: #4a3631;
             margin: 35px 10px;
-            padding: 0 10px;
         }
 
-        /* Cuenta Regresiva Estilo Minimalista Claro */
+        /* Cuenta Regresiva */
         .countdown-title {
             font-size: 0.85rem;
             letter-spacing: 3px;
             text-transform: uppercase;
             color: #a33835;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             font-weight: bold;
         }
 
@@ -128,19 +167,17 @@
 
         .time-box {
             background: #ffffff;
-            border: 1px solid #eadecc;
+            border: 1px solid #ebd2be;
             padding: 14px;
             border-radius: 4px;
-            min-width: 65px;
-            box-shadow: 0 4px 12px rgba(140, 107, 100, 0.06);
+            min-width: 68px;
+            box-shadow: 0 4px 15px rgba(140, 107, 100, 0.05);
         }
 
         .time-box span {
-            font-size: 1.6rem;
-            font-weight: normal;
+            font-size: 1.7rem;
             display: block;
             color: #a33835;
-            font-family: 'Times New Roman', serif;
         }
 
         .time-box small {
@@ -150,17 +187,18 @@
             letter-spacing: 1px;
         }
 
-        /* Bloques de Información con líneas limpias de la tarjeta */
+        /* Detalles del Evento con marcos finos dorados/crema */
         .info-section {
             margin: 45px 0;
-            border-top: 1px solid #eadecc;
-            border-bottom: 1px solid #eadecc;
-            padding: 35px 0;
+            border-top: 1px solid #ebd2be;
+            border-bottom: 1px solid #ebd2be;
+            padding: 40px 0;
+            background: rgba(255, 255, 255, 0.3);
         }
 
         .info-section h3 {
-            font-size: 1.4rem;
-            letter-spacing: 2px;
+            font-size: 1.5rem;
+            letter-spacing: 3px;
             color: #a33835;
             margin-bottom: 20px;
             font-weight: normal;
@@ -169,30 +207,27 @@
         .info-section p {
             margin: 12px 0;
             color: #4a3631;
-            font-size: 1.05rem;
+            font-size: 1.1rem;
         }
 
-        /* Icono de ubicación */
         .location-icon {
             color: #a33835;
             margin-right: 6px;
-            font-size: 1.1rem;
         }
 
         /* Botón Ver Ubicación */
         .btn-location {
             display: inline-block;
             background: #ffffff;
-            border: 1px solid #eadecc;
+            border: 1px solid #ebd2be;
             color: #8c6b64;
-            padding: 10px 24px;
+            padding: 11px 26px;
             border-radius: 4px;
             text-decoration: none;
             font-size: 0.85rem;
             letter-spacing: 1px;
             text-transform: uppercase;
-            margin-top: 18px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+            margin-top: 20px;
             transition: all 0.3s ease;
         }
 
@@ -205,42 +240,55 @@
         .dress-code {
             color: #b05c59 !important;
             font-weight: bold;
-            margin-top: 30px !important;
-            letter-spacing: 1px;
-            font-size: 0.95rem !important;
+            margin-top: 35px !important;
+            letter-spacing: 2px;
+            font-size: 0.9rem !important;
         }
 
         /* Sección de Regalos */
         .gift-section {
             background: #ffffff;
-            border: 1px solid #eadecc;
-            padding: 30px 20px;
+            border: 1px solid #ebd2be;
+            padding: 35px 25px;
             border-radius: 4px;
             margin: 45px 0;
-            box-shadow: 0 4px 15px rgba(140, 107, 100, 0.04);
+            box-shadow: 0 4px 20px rgba(140, 107, 100, 0.03);
+            position: relative;
+        }
+
+        /* Pequeño ornamento floral inferior para el bloque de regalos */
+        .gift-section::after {
+            content: "🌺";
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.2rem;
+            background: #fcf8f2;
+            padding: 0 10px;
+            color: #d9bfa7;
         }
 
         .gift-section p {
             font-size: 0.95rem;
-            line-height: 1.6;
+            line-height: 1.7;
             color: #4a3631;
             margin-top: 0;
         }
 
         .alias {
-            font-size: 1.25rem;
+            font-size: 1.3rem;
             letter-spacing: 1px;
             color: #a33835;
             margin-top: 15px;
-            font-family: 'Times New Roman', serif;
         }
 
-        /* Botón de Confirmación Principal */
+        /* Botón Confirmar Asistencia */
         .btn-confirm {
             display: inline-block;
             background: #a33835;
             color: #ffffff;
-            padding: 16px 45px;
+            padding: 16px 50px;
             border-radius: 4px;
             text-decoration: none;
             font-weight: bold;
@@ -252,13 +300,15 @@
         }
 
         .btn-confirm:hover {
-            transform: translateY(-1px);
             background: #872b29;
-            box-shadow: 0 6px 20px rgba(163, 56, 53, 0.35);
+            box-shadow: 0 6px 22px rgba(163, 56, 53, 0.4);
         }
     </style>
 </head>
 <body>
+
+    <div class="flower-corner top-left"></div>
+    <div class="flower-corner top-right"></div>
 
     <div class="container">
         <p class="subtitle">Mis Quince Años</p>
