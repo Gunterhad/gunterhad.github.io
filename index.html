@@ -23,7 +23,7 @@
             overflow-x: hidden;
         }
 
-        /* Flores decorativas en las esquinas superiores */
+        /* Flores y ramas decorativas en las esquinas superiores */
         .flower-corner {
             position: fixed;
             width: 160px;
@@ -56,6 +56,30 @@
         .top-left::before { top: 15px; left: 15px; }
         .top-right::before { top: 15px; right: 15px; }
 
+        /* Ramas laterales decorativas */
+        .side-branch {
+            position: fixed;
+            top: 40%;
+            width: 40px;
+            height: 250px;
+            pointer-events: none;
+            opacity: 0.25;
+            color: #8c6b64;
+            font-size: 2.2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            z-index: 1;
+        }
+        .branch-left {
+            left: 15px;
+            text-align: left;
+        }
+        .branch-right {
+            right: 15px;
+            text-align: right;
+        }
+
         .container {
             max-width: 450px;
             margin: 0 auto;
@@ -76,7 +100,7 @@
             margin-bottom: 0;
         }
 
-        /* Nombre Maricel con Fuente Manuscrita de Invitación Real */
+        /* Nombre Maricel con Fuente Manuscrita */
         h1 {
             font-family: 'Monsieur La Doulaise', cursive;
             font-size: 5.5rem;
@@ -187,7 +211,7 @@
             letter-spacing: 1px;
         }
 
-        /* Detalles del Evento con marcos finos dorados/crema */
+        /* Detalles del Evento */
         .info-section {
             margin: 45px 0;
             border-top: 1px solid #ebd2be;
@@ -237,12 +261,24 @@
             border-color: #a33835;
         }
 
+        /* Contenedor e Iconos de Ropa */
+        .dress-code-icons {
+            margin-top: 35px;
+            margin-bottom: -5px;
+            font-size: 1.8rem;
+            color: #b05c59;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
         .dress-code {
             color: #b05c59 !important;
             font-weight: bold;
-            margin-top: 35px !important;
+            margin-top: 10px !important;
             letter-spacing: 2px;
             font-size: 0.9rem !important;
+            text-transform: uppercase;
         }
 
         /* Sección de Regalos */
@@ -256,7 +292,6 @@
             position: relative;
         }
 
-        /* Pequeño ornamento floral inferior para el bloque de regalos */
         .gift-section::after {
             content: "🌺";
             position: absolute;
@@ -310,6 +345,17 @@
     <div class="flower-corner top-left"></div>
     <div class="flower-corner top-right"></div>
 
+    <div class="side-branch branch-left">
+        <span>🌿</span>
+        <span>🌱</span>
+        <span>🌿</span>
+    </div>
+    <div class="side-branch branch-right">
+        <span>🌿</span>
+        <span>🌱</span>
+        <span>🌿</span>
+    </div>
+
     <div class="container">
         <p class="subtitle">Mis Quince Años</p>
         <h1>Maricel</h1>
@@ -356,6 +402,10 @@
                 <i class="fa-solid fa-map-location-dot" style="margin-right: 5px;"></i> Ver ubicación
             </a>
 
+            <div class="dress-code-icons">
+                <i class="fa-solid fa-user-tie"></i>
+                <i class="fa-solid fa-person-dress"></i>
+            </div>
             <p class="dress-code">DRESS CODE: NO IR DE AZUL</p>
         </div>
 
@@ -386,7 +436,7 @@
             }
         }
 
-        // Lógica de la Cuenta Regresiva para el 10 de Julio
+        // Lógica de la Cuenta Regresiva
         const targetDate = new Date("July 10, 2026 20:30:00").getTime();
 
         const updateCountdown = () => {
