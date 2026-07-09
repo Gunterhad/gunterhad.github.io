@@ -264,24 +264,52 @@
             box-shadow: 0 6px 15px rgba(170, 132, 27, 0.35);
         }
 
-        /* Iconos de Vestimenta */
-        .dress-code-icons {
-            margin-top: 40px;
-            margin-bottom: 5px;
-            font-size: 1.8rem;
+        /* --- NUEVO DISEÑO COMPLETO DE DRESS CODE REORGANIZADO --- */
+        .dress-code-title {
             color: #b05c59;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
+            font-weight: bold;
+            margin-top: 45px !important;
+            margin-bottom: 20px !important;
+            letter-spacing: 2px;
+            font-size: 0.95rem !important;
+            text-transform: uppercase;
         }
 
-        .dress-code {
-            color: #b05c59 !important;
-            font-weight: bold;
-            margin-top: 10px !important;
-            letter-spacing: 2px;
-            font-size: 0.9rem !important;
-            text-transform: uppercase;
+        .dress-code-row {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 340px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .dress-code-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: rgba(255, 255, 255, 0.4);
+            padding: 12px 16px;
+            border-radius: 6px;
+            border: 1px solid rgba(235, 210, 190, 0.5);
+        }
+
+        .dress-code-item i {
+            font-size: 1.6rem;
+            color: #a33835;
+            min-width: 30px;
+            text-align: center;
+        }
+
+        .dress-code-text {
+            font-size: 0.95rem !important;
+            line-height: 1.4;
+            color: #4a3631;
+            margin: 0 !important;
+        }
+
+        .dress-code-text strong {
+            color: #a33835;
         }
 
         /* Sección de Regalos */
@@ -387,11 +415,18 @@
                 Ver ubicación
             </a>
 
-            <div class="dress-code-icons">
-                <i class="fa-solid fa-user-tie"></i>
-                <i class="fa-solid fa-person-dress"></i>
+            <p class="dress-code-title">DRESS CODE: NO IR DE AZUL</p>
+            
+            <div class="dress-code-row">
+                <div class="dress-code-item">
+                    <i class="fa-solid fa-person-dress"></i>
+                    <p class="dress-code-text"><strong>Ellas:</strong> agradecemos reservar los colores dorado y rojo.</p>
+                </div>
+                <div class="dress-code-item">
+                    <i class="fa-solid fa-user-tie"></i>
+                    <p class="dress-code-text"><strong>Ellos:</strong> Los esperamos con vestimenta elegante, en el color de su preferencia.</p>
+                </div>
             </div>
-            <p class="dress-code">DRESS CODE: NO IR DE AZUL</p>
         </div>
 
         <div class="gift-section">
@@ -421,7 +456,7 @@
             }
         }
 
-        // Lógica de la Cuenta Regresiva (CAMBIO: Actualizada a las 18:30:00)
+        // Lógica de la Cuenta Regresiva
         const targetDate = new Date("August 1, 2026 18:30:00").getTime();
 
         const updateCountdown = () => {
