@@ -23,7 +23,7 @@
             overflow-x: hidden;
         }
 
-        /* Marco de ramas laterales continuas */
+        /* --- MODIFICACIÓN: MARCO DE RAMAS LATERALES CONTINUAS EXACTO A LA IMAGEN --- */
         .side-border {
             position: fixed;
             top: 0;
@@ -136,7 +136,7 @@
             margin: 35px 10px;
         }
 
-        /* Apartado de Fecha */
+        /* Diseño de Fecha */
         .event-date-container {
             margin: 40px 0;
             display: flex;
@@ -353,10 +353,10 @@
         </p>
 
         <div class="event-date-container">
-            <div class="month-title">Agosto</div>
+            <div class="month-title">Julio</div>
             <div class="date-row">
-                <div class="date-side">Sábado</div>
-                <div class="date-center">01</div>
+                <div class="date-side">Viernes</div>
+                <div class="date-center">10</div>
                 <div class="date-side">2026</div>
             </div>
         </div>
@@ -421,8 +421,8 @@
             }
         }
 
-        // Lógica de la Cuenta Regresiva (Actualizada al 1 de agosto de 2026)
-        const targetDate = new Date("August 1, 2026 20:30:00").getTime();
+        // Lógica de la Cuenta Regresiva
+        const targetDate = new Date("July 10, 2026 20:30:00").getTime();
 
         const updateCountdown = () => {
             const now = new Date().getTime();
