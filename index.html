@@ -336,6 +336,41 @@
             margin-top: 15px;
         }
 
+        /* --- NUEVO ESTILO: CAMPO DE ENTRADA PARA EL NOMBRE --- */
+        .name-input-container {
+            max-width: 300px;
+            margin: 0 auto 15px auto;
+            text-align: left;
+        }
+
+        .name-label {
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #8c6b64;
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .name-field {
+            width: 100%;
+            padding: 12px 15px;
+            box-sizing: border-box;
+            border: 1px solid #ebd2be;
+            background-color: #ffffff;
+            border-radius: 4px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            color: #4a3631;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .name-field:focus {
+            border-color: #a33835;
+        }
+
         /* Botón Confirmar Asistencia */
         .btn-confirm {
             display: inline-block;
@@ -350,6 +385,9 @@
             text-transform: uppercase;
             box-shadow: 0 4px 15px rgba(163, 56, 53, 0.2);
             transition: all 0.3s ease;
+            width: 100%;
+            max-width: 300px;
+            box-sizing: border-box;
         }
 
         .btn-confirm:hover {
@@ -368,7 +406,7 @@
         
         <div class="music-player">
             <audio id="bg-music" loop>
-                <source src="quince" type="audio/mpeg">
+                <source src="musica_15.mp3" type="audio/mpeg">
                 Tu navegador no soporta este reproductor.
             </audio>
             <button class="music-btn" id="play-btn" onclick="toggleMusic()">▶</button>
@@ -411,7 +449,7 @@
             <p>vía Pitalito-Palestina</p>
             <p style="margin-top: 10px; font-weight: 600;">18:30 HS</p>
             
-            <a href="https://maps.app.goo.gl/BtAEqcGENJ1DcY3w7" class="btn-location" target="_blank">
+            <a href="LINK_DE_GOOGLE_MAPS" class="btn-location" target="_blank">
                 Ver ubicación
             </a>
 
@@ -435,10 +473,41 @@
         </div>
 
         <p style="color: #8c6b64; font-style: italic; margin-bottom: 25px;">¡Espero que puedas compartir conmigo este día tan especial!</p>
-        <a href="https://wa.me/TU_NUMERO_AQUI?text=Hola%20Maricel,%20confirmo%20mi%20asistencia%20a%20tus%20quince!" class="btn-confirm" target="_blank">Confirmar Asistencia</a>
+        
+        <div class="name-input-container">
+            <label class="name-label" for="guest-name">Escribe tu nombre:</label>
+            <input type="text" id="guest-name" class="name-field" placeholder="Ej: Juan Pérez" oninput="updateWhatsAppLink()">
+        </div>
+
+        <a href="#" id="whatsapp-btn" class="btn-confirm" target="_blank">Confirmar Asistencia</a>
     </div>
 
     <script>
+        // CONFIGURACIÓN: Coloca tu número de WhatsApp real aquí (Código de país + número, ej: 573123456789)
+        const WHATSAPP_NUMBER = "TU_NUMERO_AQUI"; 
+
+        // Función para actualizar dinámicamente el mensaje con el nombre escrito
+        function updateWhatsAppLink() {
+            const guestName = document.getElementById("guest-name").value.trim();
+            const baseText = "Hola Maricel, confirmo mi asistencia a tus quince!";
+            
+            // Si el invitado escribió algo, agregamos su nombre al mensaje
+            let finalText = baseText;
+            if (guestName !== "") {
+                finalText += ` Mi nombre es: ${guestName}`;
+            }
+
+            // Codificamos el texto para que sea compatible con un enlace URL
+            const encodedText = encodeURIComponent(finalText);
+            
+            // Asignamos el enlace final al botón
+            document.getElementById("whatsapp-btn").href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedText}`;
+        }
+
+        // Inicializamos el enlace al cargar la página por primera vez
+        updateWhatsAppLink();
+
+
         // Lógica del Reproductor de Música
         const music = document.getElementById("bg-music");
         const playBtn = document.getElementById("play-btn");
