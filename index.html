@@ -23,7 +23,7 @@
             overflow-x: hidden;
         }
 
-        /* --- MODIFICACIÓN: MARCO DE RAMAS LATERALES CONTINUAS EXACTO A LA IMAGEN --- */
+        /* Marco de ramas laterales continuas */
         .side-border {
             position: fixed;
             top: 0;
@@ -136,7 +136,7 @@
             margin: 35px 10px;
         }
 
-        /* Diseño de Fecha */
+        /* Apartado de Fecha */
         .event-date-container {
             margin: 40px 0;
             display: flex;
@@ -353,10 +353,10 @@
         </p>
 
         <div class="event-date-container">
-            <div class="month-title">Julio</div>
+            <div class="month-title">Agosto</div>
             <div class="date-row">
-                <div class="date-side">Viernes</div>
-                <div class="date-center">10</div>
+                <div class="date-side">Sábado</div>
+                <div class="date-center">01</div>
                 <div class="date-side">2026</div>
             </div>
         </div>
@@ -381,7 +381,7 @@
             <i class="fa-solid fa-location-dot location-icon"></i>
             <div class="venue-name">El fogón caminero</div>
             <p>Calle 16</p>
-            <p style="margin-top: 10px; font-weight: 600;">20:30 HS</p>
+            <p style="margin-top: 10px; font-weight: 600;">18:30 HS</p>
             
             <a href="LINK_DE_GOOGLE_MAPS" class="btn-location" target="_blank">
                 Ver ubicación
@@ -421,8 +421,8 @@
             }
         }
 
-        // Lógica de la Cuenta Regresiva
-        const targetDate = new Date("July 10, 2026 20:30:00").getTime();
+        // Lógica de la Cuenta Regresiva (CAMBIO: Actualizada a las 18:30:00)
+        const targetDate = new Date("August 1, 2026 18:30:00").getTime();
 
         const updateCountdown = () => {
             const now = new Date().getTime();
