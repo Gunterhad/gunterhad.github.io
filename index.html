@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mis Quince - Maricel</title>
+    <!-- Cargamos fuentes elegantes desde Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Monsieur+La+Doulaise&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <!-- Iconos FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -312,7 +314,7 @@
             color: #a33835;
         }
 
-        /* Sección de Regalos */
+        /* --- SECCIÓN DE REGALOS ACTUALIZADA --- */
         .gift-section {
             background: #ffffff;
             border: 1px solid #ebd2be;
@@ -327,13 +329,49 @@
             line-height: 1.7;
             color: #4a3631;
             margin-top: 0;
+            margin-bottom: 20px;
         }
 
-        .alias {
-            font-size: 1.3rem;
-            letter-spacing: 1px;
+        .gift-options-row {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            text-align: left;
+            max-width: 320px;
+            margin: 0 auto;
+        }
+
+        .gift-option-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: #fffcf9;
+            padding: 12px 15px;
+            border-radius: 6px;
+            border: 1px dashed #ebd2be;
+        }
+
+        .gift-option-item i {
+            font-size: 1.5rem;
             color: #a33835;
-            margin-top: 15px;
+            min-width: 25px;
+            text-align: center;
+        }
+
+        .gift-option-text {
+            font-size: 0.95rem;
+            color: #4a3631;
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        .alias-tag {
+            display: block;
+            font-size: 1.15rem;
+            color: #a33835;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-top: 3px;
         }
 
         /* Campo de entrada para el nombre */
@@ -397,6 +435,7 @@
 </head>
 <body>
 
+    <!-- Marcos de Ramas a los lados de la página -->
     <div class="side-border border-left"></div>
     <div class="side-border border-right"></div>
 
@@ -404,6 +443,7 @@
         <p class="subtitle">Mis Quince Años</p>
         <h1>Maricel</h1>
         
+        <!-- Reproductor de Música -->
         <div class="music-player">
             <audio id="bg-music" loop>
                 <source src="musica_15.mp3" type="audio/mpeg">
@@ -418,6 +458,7 @@
             Gracias por ser parte de mi ilusión y guardar este momento en el corazón."
         </p>
 
+        <!-- Sección de Fecha -->
         <div class="event-date-container">
             <div class="month-title">Agosto</div>
             <div class="date-row">
@@ -427,6 +468,7 @@
             </div>
         </div>
 
+        <!-- Cuenta Regresiva -->
         <p class="countdown-title">Faltan</p>
         <div class="countdown">
             <div class="time-box">
@@ -443,6 +485,7 @@
             </div>
         </div>
 
+        <!-- Detalles del Evento -->
         <div class="info-section">
             <i class="fa-solid fa-location-dot location-icon"></i>
             <div class="venue-name">TERRA VIVA</div>
@@ -453,13 +496,16 @@
                 Ver ubicación
             </a>
 
+            <!-- Título General de Vestimenta -->
             <p class="dress-code-title">DRESS CODE</p>
             
             <div class="dress-code-row">
+                <!-- Bloque de Mujeres -->
                 <div class="dress-code-item">
                     <i class="fa-solid fa-person-dress"></i>
                     <p class="dress-code-text"><strong>Ellas:</strong> agradecemos reservar los colores dorado y rojo.</p>
                 </div>
+                <!-- Bloque de Hombres -->
                 <div class="dress-code-item">
                     <i class="fa-solid fa-user-tie"></i>
                     <p class="dress-code-text"><strong>Ellos:</strong> Los esperamos con vestimenta elegante, en el color de su preferencia.</p>
@@ -467,26 +513,45 @@
             </div>
         </div>
 
+        <!-- CAMBIO: Sección de Regalos con Estilo de Alternativas Claras -->
         <div class="gift-section">
-            <p>El mejor regalo es tu presencia, pero si deseas hacerme un obsequio, puedes hacerlo mediante el siguiente alias:</p>
-            <div class="alias"><strong>ALIAS: BRIARIQUELME</strong></div>
+            <p>El mejor regalo es tu presencia, pero si deseas hacerme un obsequio, puedes hacerlo mediante las siguientes opciones:</p>
+            
+            <div class="gift-options-row">
+                <!-- Opción de Transferencia -->
+                <div class="gift-option-item">
+                    <i class="fa-solid fa-credit-card"></i>
+                    <p class="gift-option-text">
+                        <strong>Transferencia bancaria:</strong>
+                        <span class="alias-tag">ALIAS: briariquelme</span>
+                    </p>
+                </div>
+                <!-- Opción de Lluvia de Sobres -->
+                <div class="gift-option-item">
+                    <i class="fa-solid fa-envelope-open-text"></i>
+                    <p class="gift-option-text">
+                        <strong>Lluvia de sobres:</strong><br>
+                        Dispondremos de un cofre el día del evento.
+                    </p>
+                </div>
+            </div>
         </div>
 
         <p style="color: #8c6b64; font-style: italic; margin-bottom: 25px;">¡Espero que puedas compartir conmigo este día tan especial!</p>
         
+        <!-- Input dinámico para escribir el nombre antes de enviar -->
         <div class="name-input-container">
             <label class="name-label" for="guest-name">Escribe tu nombre:</label>
             <input type="text" id="guest-name" class="name-field" placeholder="Ej: Juan Pérez" oninput="updateWhatsAppLink()">
         </div>
 
+        <!-- Botón de Asistencia Interactiva -->
         <a href="#" id="whatsapp-btn" class="btn-confirm" target="_blank">Confirmar Asistencia</a>
     </div>
 
     <script>
-        // CAMBIO: Tu número de WhatsApp real ingresado correctamente
         const WHATSAPP_NUMBER = "573153797591"; 
 
-        // Función para actualizar dinámicamente el mensaje con el nombre escrito
         function updateWhatsAppLink() {
             const guestName = document.getElementById("guest-name").value.trim();
             const baseText = "Hola Maricel, confirmo mi asistencia a tus quince!";
@@ -500,9 +565,7 @@
             document.getElementById("whatsapp-btn").href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedText}`;
         }
 
-        // Inicializamos el enlace al cargar la página
         updateWhatsAppLink();
-
 
         // Lógica del Reproductor de Música
         const music = document.getElementById("bg-music");
