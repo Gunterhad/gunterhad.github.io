@@ -106,10 +106,11 @@
         }
 
         .gallery-slides img {
-            width: 100.333%; 
+            width: 33.3333%; 
             height: 450px; /* Ajuste óptimo de altura para celulares */
-            object-fit: contain; /* ¡CORRECCIÓN AQUÍ! Muestra la foto completa sin recortar nada */
+            object-fit: contain; /* Muestra la foto completa sin recortar nada */
             display: block;
+            flex-shrink: 0;
         }
 
         .gallery-dots {
