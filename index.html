@@ -336,7 +336,7 @@
             margin-top: 15px;
         }
 
-        /* --- NUEVO ESTILO: CAMPO DE ENTRADA PARA EL NOMBRE --- */
+        /* Campo de entrada para el nombre */
         .name-input-container {
             max-width: 300px;
             margin: 0 auto 15px auto;
@@ -449,7 +449,7 @@
             <p>vía Pitalito-Palestina</p>
             <p style="margin-top: 10px; font-weight: 600;">18:30 HS</p>
             
-            <a href="LINK_DE_GOOGLE_MAPS" class="btn-location" target="_blank">
+            <a href="https://maps.app.goo.gl/qYJSEnKN5KcQsBYq7" class="btn-location" target="_blank">
                 Ver ubicación
             </a>
 
@@ -483,7 +483,7 @@
     </div>
 
     <script>
-        // CONFIGURACIÓN: Coloca tu número de WhatsApp real aquí (Código de país + número, ej: 573123456789)
+        // CAMBIO: Tu número de WhatsApp real ingresado correctamente
         const WHATSAPP_NUMBER = "573153797591"; 
 
         // Función para actualizar dinámicamente el mensaje con el nombre escrito
@@ -491,20 +491,16 @@
             const guestName = document.getElementById("guest-name").value.trim();
             const baseText = "Hola Maricel, confirmo mi asistencia a tus quince!";
             
-            // Si el invitado escribió algo, agregamos su nombre al mensaje
             let finalText = baseText;
             if (guestName !== "") {
                 finalText += ` Mi nombre es: ${guestName}`;
             }
 
-            // Codificamos el texto para que sea compatible con un enlace URL
             const encodedText = encodeURIComponent(finalText);
-            
-            // Asignamos el enlace final al botón
             document.getElementById("whatsapp-btn").href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedText}`;
         }
 
-        // Inicializamos el enlace al cargar la página por primera vez
+        // Inicializamos el enlace al cargar la página
         updateWhatsAppLink();
 
 
