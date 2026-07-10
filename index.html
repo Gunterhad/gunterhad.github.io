@@ -33,7 +33,6 @@
             pointer-events: none;
             opacity: 0.25; 
             z-index: 10;
-            /* Patrón de hojas en SVG con color dorado suave (#dfba73) */
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 80' width='40' height='80'%3E%3Cpath d='M20,10 Q12,15 20,25 Q28,15 20,10 M20,25 Q12,30 20,40 Q28,30 20,25 M20,40 Q12,45 20,55 Q28,45 20,40 M20,55 Q12,60 20,70 Q28,60 20,55 M20,0 L20,80' fill='none' stroke='%23dfba73' stroke-width='1.5'/%3E%3Cpath d='M20,18 Q10,12 8,22 Q14,24 20,18 M20,33 Q30,27 32,37 Q26,39 20,33 M20,48 Q10,42 8,52 Q14,54 20,48 M20,63 Q30,57 32,67 Q26,69 20,63' fill='%23dfba73' opacity='0.7'/%3E%3C/svg%3E");
             background-repeat: repeat-y;
         }
@@ -71,7 +70,7 @@
         h1 {
             font-family: 'Monsieur La Doulaise', cursive;
             font-size: 5.5rem;
-            color: #f7e7ce; /* Crema brillante/Oro sutil */
+            color: #f7e7ce; 
             text-shadow: 0px 2px 10px rgba(0,0,0,0.3);
             margin-top: -10px;
             margin-bottom: 20px;
@@ -86,6 +85,51 @@
                 opacity: 1;
                 transform: translateY(0);
             }
+        }
+
+        /* Galería de Fotos deslizable (Carrusel) */
+        .photo-gallery {
+            position: relative;
+            max-width: 320px;
+            margin: 30px auto;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 2px solid #dfba73;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .gallery-slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: 300%; 
+        }
+
+        .gallery-slides img {
+            width: 100.333%; 
+            height: 420px;
+            object-fit: cover; 
+            display: block;
+        }
+
+        .gallery-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 15px;
+            margin-bottom: 25px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            background-color: rgba(223, 186, 115, 0.3);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .dot.active {
+            background-color: #dfba73;
         }
 
         /* Reproductor de Música */
@@ -216,7 +260,91 @@
             letter-spacing: 1px;
         }
 
-        /* Detalles del Evento */
+        /* NUEVA SECCIÓN: Itinerario estilo línea de tiempo */
+        .itinerary-section {
+            margin: 50px 0;
+            padding: 20px 10px;
+            background: rgba(255, 255, 255, 0.03);
+            border-top: 1px solid rgba(223, 186, 115, 0.2);
+            border-bottom: 1px solid rgba(223, 186, 115, 0.2);
+            border-radius: 8px;
+        }
+
+        .itinerary-title {
+            font-family: 'Playfair Display', serif;
+            color: #dfba73;
+            font-size: 1.3rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 320px;
+            margin: 0 auto;
+            text-align: left;
+            padding-left: 30px;
+        }
+
+        /* Línea vertical dorada */
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 10px;
+            bottom: 10px;
+            width: 1px;
+            background: linear-gradient(to bottom, transparent, rgba(223, 186, 115, 0.5) 15%, rgba(223, 186, 115, 0.5) 85%, transparent);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Punto/Ícono en la línea de tiempo */
+        .timeline-icon {
+            position: absolute;
+            left: -32px;
+            top: 3px;
+            background: #4a0e17;
+            color: #dfba73;
+            width: 18px;
+            height: 18px;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+        }
+
+        .timeline-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 15px;
+        }
+
+        .timeline-event {
+            font-size: 1.05rem;
+            color: #f5eae1;
+            font-weight: 400;
+        }
+
+        .timeline-time {
+            font-size: 0.9rem;
+            color: #dfba73;
+            font-style: italic;
+            white-space: nowrap;
+        }
+
+        /* Detalles del Evento (Ubicación) */
         .info-section {
             margin: 45px 0;
             padding: 20px 0;
@@ -439,6 +567,20 @@
             <div class="music-text" id="music-status">Escuchar Música</div>
         </div>
 
+        <!-- Galería de Fotos Interactiva -->
+        <div class="photo-gallery">
+            <div class="gallery-slides" id="gallerySlides">
+                <img src="foto1.jpg" alt="Maricel Foto 1">
+                <img src="foto2.jpg" alt="Maricel Foto 2">
+                <img src="foto3.jpg" alt="Maricel Foto 3">
+            </div>
+        </div>
+        <div class="gallery-dots">
+            <div class="dot active" onclick="goToSlide(0)"></div>
+            <div class="dot" onclick="goToSlide(1)"></div>
+            <div class="dot" onclick="goToSlide(2)"></div>
+        </div>
+
         <p class="quote">
             "Bajo un cielo lleno de estrellas, comparto esta noche con personas tan bellas.<br>
             Gracias por ser parte de mi ilusión y guardar este momento en el corazón."
@@ -468,6 +610,55 @@
             <div class="time-box">
                 <span id="mins">00</span>
                 <small>Minutos</small>
+            </div>
+        </div>
+
+        <!-- NUEVA SECCIÓN: Itinerario -->
+        <div class="itinerary-section">
+            <div class="itinerary-title">Itinerario</div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-icon"><i class="fa-solid fa-door-open"></i></div>
+                    <div class="timeline-content">
+                        <span class="timeline-event">Llegada</span>
+                        <span class="timeline-time">6:30 pm</span>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon"><i class="fa-solid fa-champagne-glasses"></i></div>
+                    <div class="timeline-content">
+                        <span class="timeline-event">Pasabocas y cóctel</span>
+                        <span class="timeline-time">7:00 pm</span>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon"><i class="fa-solid fa-star"></i></div>
+                    <div class="timeline-content">
+                        <span class="timeline-event">Entrada Maricel</span>
+                        <span class="timeline-time">8:00 pm</span>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon"><i class="fa-solid fa-utensils"></i></div>
+                    <div class="timeline-content">
+                        <span class="timeline-event">Cena</span>
+                        <span class="timeline-time">8:30 pm</span>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon"><i class="fa-solid fa-compact-disc"></i></div>
+                    <div class="timeline-content">
+                        <span class="timeline-event">Fiesta</span>
+                        <span class="timeline-time">10:00 pm</span>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon"><i class="fa-solid fa-moon"></i></div>
+                    <div class="timeline-content">
+                        <span class="timeline-event">Finaliza</span>
+                        <span class="timeline-time">3:30 am</span>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -537,6 +728,29 @@
         }
 
         updateWhatsAppLink();
+
+        // Lógica del Carrusel Automático e Interactivo
+        let currentSlide = 0;
+        const slidesContainer = document.getElementById("gallerySlides");
+        const dots = document.querySelectorAll(".dot");
+
+        function goToSlide(slideIndex) {
+            currentSlide = slideIndex;
+            slidesContainer.style.transform = `translateX(-${currentSlide * 33.333}%)`;
+            
+            dots.forEach((dot, index) => {
+                if (index === currentSlide) {
+                    dot.classList.add("active");
+                } else {
+                    dot.classList.remove("active");
+                }
+            });
+        }
+
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % 3;
+            goToSlide(currentSlide);
+        }, 4000);
 
         // Lógica del Reproductor de Música
         const music = document.getElementById("bg-music");
