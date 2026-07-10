@@ -314,11 +314,11 @@
             color: #a33835;
         }
 
-        /* --- SECCIÓN DE REGALOS ACTUALIZADA --- */
+        /* --- SECCIÓN DE REGALOS: SOLO LLUVIA DE SOBRES --- */
         .gift-section {
             background: #ffffff;
             border: 1px solid #ebd2be;
-            padding: 35px 25px;
+            padding: 30px 25px;
             border-radius: 4px;
             margin: 45px 0;
             box-shadow: 0 4px 20px rgba(140, 107, 100, 0.03);
@@ -329,49 +329,34 @@
             line-height: 1.7;
             color: #4a3631;
             margin-top: 0;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
-        .gift-options-row {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            text-align: left;
-            max-width: 320px;
+        .gift-envelope-box {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: #fffcf9;
+            padding: 14px 20px;
+            border-radius: 6px;
+            border: 1px dashed #ebd2be;
+            max-width: 280px;
             margin: 0 auto;
         }
 
-        .gift-option-item {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            background: #fffcf9;
-            padding: 12px 15px;
-            border-radius: 6px;
-            border: 1px dashed #ebd2be;
-        }
-
-        .gift-option-item i {
-            font-size: 1.5rem;
+        .gift-envelope-box i {
+            font-size: 1.6rem;
             color: #a33835;
-            min-width: 25px;
-            text-align: center;
         }
 
-        .gift-option-text {
-            font-size: 0.95rem;
-            color: #4a3631;
-            margin: 0;
-            line-height: 1.4;
-        }
-
-        .alias-tag {
-            display: block;
-            font-size: 1.15rem;
+        .gift-envelope-text {
+            font-size: 1rem;
             color: #a33835;
             font-weight: bold;
             letter-spacing: 1px;
-            margin-top: 3px;
+            margin: 0;
+            text-transform: uppercase;
         }
 
         /* Campo de entrada para el nombre */
@@ -513,27 +498,12 @@
             </div>
         </div>
 
-        <!-- CAMBIO: Sección de Regalos con Estilo de Alternativas Claras -->
+        <!-- CAMBIO: Modificado para mostrar exclusivamente lluvia de sobres -->
         <div class="gift-section">
-            <p>El mejor regalo es tu presencia, pero si deseas hacerme un obsequio, puedes hacerlo mediante las siguientes opciones:</p>
-            
-            <div class="gift-options-row">
-                <!-- Opción de Transferencia -->
-                <div class="gift-option-item">
-                    <i class="fa-solid fa-credit-card"></i>
-                    <p class="gift-option-text">
-                        <strong>Transferencia bancaria:</strong>
-                        <span class="alias-tag">ALIAS: briariquelme</span>
-                    </p>
-                </div>
-                <!-- Opción de Lluvia de Sobres -->
-                <div class="gift-option-item">
-                    <i class="fa-solid fa-envelope-open-text"></i>
-                    <p class="gift-option-text">
-                        <strong>Lluvia de sobres:</strong><br>
-                        Dispondremos de un cofre el día del evento.
-                    </p>
-                </div>
+            <p>El mejor regalo es tu presencia, pero si deseas hacerme un obsequio, este será recibido mediante:</p>
+            <div class="gift-envelope-box">
+                <i class="fa-solid fa-envelope-open-text"></i>
+                <p class="gift-envelope-text">Lluvia de sobres</p>
             </div>
         </div>
 
