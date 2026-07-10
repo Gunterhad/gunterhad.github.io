@@ -87,7 +87,7 @@
             }
         }
 
-        /* Galería de Fotos deslizable (Carrusel) */
+        /* CORRECCIÓN DE LA GALERÍA DE FOTOS */
         .photo-gallery {
             position: relative;
             max-width: 320px;
@@ -95,6 +95,7 @@
             border-radius: 8px;
             overflow: hidden;
             border: 2px solid #dfba73;
+            background-color: rgba(0, 0, 0, 0.2); /* Fondo oscuro sutil para enmarcar las fotos */
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
         }
 
@@ -106,8 +107,8 @@
 
         .gallery-slides img {
             width: 100.333%; 
-            height: 420px;
-            object-fit: cover; 
+            height: 450px; /* Ajuste óptimo de altura para celulares */
+            object-fit: contain; /* ¡CORRECCIÓN AQUÍ! Muestra la foto completa sin recortar nada */
             display: block;
         }
 
@@ -260,7 +261,7 @@
             letter-spacing: 1px;
         }
 
-        /* NUEVA SECCIÓN: Itinerario estilo línea de tiempo */
+        /* Itinerario estilo línea de tiempo */
         .itinerary-section {
             margin: 50px 0;
             padding: 20px 10px;
@@ -288,7 +289,6 @@
             padding-left: 30px;
         }
 
-        /* Línea vertical dorada */
         .timeline::before {
             content: '';
             position: absolute;
@@ -308,7 +308,6 @@
             margin-bottom: 0;
         }
 
-        /* Punto/Ícono en la línea de tiempo */
         .timeline-icon {
             position: absolute;
             left: -32px;
@@ -567,7 +566,7 @@
             <div class="music-text" id="music-status">Escuchar Música</div>
         </div>
 
-        <!-- Galería de Fotos Interactiva -->
+        <!-- Galería de Fotos Corregida -->
         <div class="photo-gallery">
             <div class="gallery-slides" id="gallerySlides">
                 <img src="vestido.jpeg" alt="Maricel Foto 1">
@@ -613,7 +612,7 @@
             </div>
         </div>
 
-        <!-- NUEVA SECCIÓN: Itinerario -->
+        <!-- Itinerario -->
         <div class="itinerary-section">
             <div class="itinerary-title">Itinerario</div>
             <div class="timeline">
