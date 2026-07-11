@@ -87,53 +87,6 @@
             }
         }
 
-        /* CORRECCIÓN DE LA GALERÍA DE FOTOS */
-        .photo-gallery {
-            position: relative;
-            max-width: 320px;
-            margin: 30px auto;
-            border-radius: 8px;
-            overflow: hidden;
-            border: 2px solid #dfba73;
-            background-color: rgba(0, 0, 0, 0.2); /* Fondo oscuro sutil para enmarcar las fotos */
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-        }
-
-        .gallery-slides {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-            width: 300%; 
-        }
-
-        .gallery-slides img {
-            width: 33.3333%; 
-            height: 450px; /* Ajuste óptimo de altura para celulares */
-            object-fit: contain; /* Muestra la foto completa sin recortar nada */
-            display: block;
-            flex-shrink: 0;
-        }
-
-        .gallery-dots {
-            display: flex;
-            justify-content: center;
-            gap: 8px;
-            margin-top: 15px;
-            margin-bottom: 25px;
-        }
-
-        .dot {
-            width: 8px;
-            height: 8px;
-            background-color: rgba(223, 186, 115, 0.3);
-            border-radius: 50%;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .dot.active {
-            background-color: #dfba73;
-        }
-
         /* Reproductor de Música */
         .music-player {
             margin-bottom: 45px;
@@ -560,25 +513,11 @@
         <!-- Reproductor de Música -->
         <div class="music-player">
             <audio id="bg-music" loop>
-                <source src="song15.mp3" type="audio/mpeg">
+                <source src="spark.mp3" type="audio/mpeg">
                 Tu navegador no soporta este reproductor.
             </audio>
             <button class="music-btn" id="play-btn" onclick="toggleMusic()">▶</button>
             <div class="music-text" id="music-status">Escuchar Música</div>
-        </div>
-
-        <!-- Galería de Fotos Corregida -->
-        <div class="photo-gallery">
-            <div class="gallery-slides" id="gallerySlides">
-                <img src="vestido.jpeg" alt="Maricel Foto 1">
-                <img src="hermano.jpeg" alt="Maricel Foto 2">
-                <img src="cool.jpeg" alt="Maricel Foto 3">
-            </div>
-        </div>
-        <div class="gallery-dots">
-            <div class="dot active" onclick="goToSlide(0)"></div>
-            <div class="dot" onclick="goToSlide(1)"></div>
-            <div class="dot" onclick="goToSlide(2)"></div>
         </div>
 
         <p class="quote">
@@ -728,29 +667,6 @@
         }
 
         updateWhatsAppLink();
-
-        // Lógica del Carrusel Automático e Interactivo
-        let currentSlide = 0;
-        const slidesContainer = document.getElementById("gallerySlides");
-        const dots = document.querySelectorAll(".dot");
-
-        function goToSlide(slideIndex) {
-            currentSlide = slideIndex;
-            slidesContainer.style.transform = `translateX(-${currentSlide * 33.333}%)`;
-            
-            dots.forEach((dot, index) => {
-                if (index === currentSlide) {
-                    dot.classList.add("active");
-                } else {
-                    dot.classList.remove("active");
-                }
-            });
-        }
-
-        setInterval(() => {
-            currentSlide = (currentSlide + 1) % 3;
-            goToSlide(currentSlide);
-        }, 4000);
 
         // Lógica del Reproductor de Música
         const music = document.getElementById("bg-music");
